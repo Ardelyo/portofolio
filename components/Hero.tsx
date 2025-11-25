@@ -4,13 +4,13 @@ import { useLanguage } from '../LanguageContext';
 
 const letterVariants = {
   hidden: { y: 100, opacity: 0 },
-  visible: { 
-    y: 0, 
+  visible: {
+    y: 0,
     opacity: 1,
-    transition: { 
-      duration: 1.2, 
-      ease: [0.2, 0.65, 0.3, 0.9] 
-    } 
+    transition: {
+      duration: 1.2,
+      ease: [0.2, 0.65, 0.3, 0.9]
+    }
   }
 };
 
@@ -28,7 +28,7 @@ const containerVariants = {
 const Hero: React.FC = () => {
   const { t } = useLanguage();
   const name = "ARDELYO";
-  
+
   // Mouse Parallax Logic
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -51,22 +51,22 @@ const Hero: React.FC = () => {
 
   return (
     <section className="h-full w-screen flex flex-col justify-center items-center p-8 bg-paper relative overflow-hidden flex-shrink-0 snap-center">
-      
+
       {/* Animated Grain/Noise Overlay */}
       <div className="absolute inset-0 opacity-[0.06] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none mix-blend-overlay"></div>
-      
+
       {/* Background Radial Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(50,50,50,0.1)_0%,transparent_60%)] pointer-events-none" />
-      
+
       <div className="absolute top-8 left-8 text-xs font-mono text-ink-muted tracking-widest uppercase">
         {t("Based in Indonesia", "Berbasis di Indonesia")}
       </div>
       <div className="absolute top-8 right-8 text-xs font-mono text-ink-muted tracking-widest uppercase hidden md:block">
         Est. 2021
       </div>
-      
+
       <div className="z-10 text-center flex flex-col items-center relative w-full">
-        <motion.p 
+        <motion.p
           style={{ x: moveXReverse, y: moveYReverse }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -75,8 +75,8 @@ const Hero: React.FC = () => {
         >
           {t("The Portfolio of", "Portofolio dari")}
         </motion.p>
-        
-        <motion.h1 
+
+        <motion.h1
           style={{ x: moveX, y: moveY }}
           variants={containerVariants}
           initial="hidden"
@@ -98,17 +98,17 @@ const Hero: React.FC = () => {
           className="h-px bg-ink-muted mt-8 md:mt-10 mb-6"
         />
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
           className="font-mono text-[10px] md:text-sm tracking-[0.3em] text-ink-muted uppercase text-center"
         >
-          {t("Student • Developer • Leader", "Mahasiswa • Pengembang • Pemimpin")}
+          {t("Student • Developer • Leader", "Siswa • Pengembang • Pemimpin")}
         </motion.p>
       </div>
 
-      <motion.div 
+      <motion.div
         className="absolute bottom-12 left-1/2 -translate-x-1/2"
         animate={{ y: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
         transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
