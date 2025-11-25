@@ -24,7 +24,7 @@ const GreenKodeVisual: React.FC = () => (
         animate={{ opacity: [0, 1, 1, 0] }}
         transition={{ repeat: Infinity, duration: 4, times: [0, 0.1, 0.9, 1] }}
       >
-        &gt; initializing carbon_tracker...
+        {'>'} initializing carbon_tracker...
       </motion.div>
       <div className="flex items-end gap-2 h-24 mt-4">
         {[40, 70, 30, 85, 50, 60, 20].map((h, i) => (
